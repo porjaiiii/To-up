@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to up</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <a>กดตรงหัวใจสีแดงงงเพื่อดูดู๊</a>
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    
+                    <div class="text">
+                        <strong>///////////</strong>
+                        <p>
+                            แฮปปี้วาาเลนไทน์นะๆๆๆ อัพสุ้สุ้กับการเปนนกฮูกมาเรียนวันนี้
+                            ให้้ได้หัวใจเยอะเยอะเลย
+                        </p>
+                        <p>
+                            ------
+                        
+                        </p>
+
+                        <p>
+                            แปะหัวใจจม้ายย
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+  
+       
+        <div class="button-wrapper">
+            <button class="yes-button" onclick="window.location.href='hearts.html'">แปะ</button>
+            <button class="no-button" onclick="runAway()">ไม่แปะ</button>
+        </div>
+    </div>
+    <script>
+        function runAway() {
+            const noButton = document.querySelector('.no-button');
+            const yesButton = document.querySelector('.yes-button');
+            const bodyWidth = document.body.clientWidth;
+            const bodyHeight = document.body.clientHeight;
+            const newLeft = Math.random() * (bodyWidth - noButton.clientWidth) / 2;
+            const newTop = Math.random() * (bodyHeight - noButton.clientHeight) / 2;
+            noButton.style.left = newLeft + 'px';
+            noButton.style.top = newTop + 'px';
+            yesButton.style.transform = `scale(${1 + 0.9 * (++yesButton.clickCount || (yesButton.clickCount = 1))})`;
+           
+            yesButton.innerText = "ไม่แปะจริงหร๊อ";
+        }
+    
+
+function createFlower() {
+    const flower = document.createElement('div');
+    flower.classList.add('flower');
+    flower.style.left = Math.random() * 100 + 'vw';
+    flower.style.top = Math.random() * 100 + 'vh'; // Position the flower randomly within the viewport
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 3000);
+    
+  
+
+}
+        function startFlowerAnimations() {
+        
+            setInterval(createFlower, 500);
+        }
+        window.onload = startFlowerAnimations;
+
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+</body>
+</html>
